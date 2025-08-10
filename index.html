@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran Zero Store⚡</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle at top, #2a2a2a, #1a1a1a);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            color: #fff;
+            text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+        }
+
+        .payment-card {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            width: 300px;
+            animation: glow 3s infinite linear;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+            50% { box-shadow: 0 0 20px #00f, 0 0 40px #0ff; }
+            100% { box-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+        }
+
+        .logo {
+            width: 90px;
+            margin-bottom: 10px;
+        }
+
+        .number-box {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .number {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .copy-btn {
+            background: #0ff;
+            border: none;
+            padding: 5px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            color: black;
+            transition: 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #00cccc;
+        }
+
+        .qr {
+            margin-top: 15px;
+            border-radius: 10px;
+            width: 140px;
+            height: 140px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ZERO STORE⚡</h1>
+
+    <!-- DANA -->
+    <div class="payment-card">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Dana_Logo.svg" alt="Logo DANA">
+        <div class="number-box">
+            <span id="dana-number" class="number">085606123943</span>
+            <button class="copy-btn" onclick="copyToClipboard('dana-number')">Salin</button>
+        </div>
+        <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=085606123943" alt="QR DANA">
+    </div>
+
+    <!-- GOPAY -->
+    <div class="payment-card">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/46/GoPay_logo.svg" alt="Logo GoPay">
+        <div class="number-box">
+            <span id="gopay-number" class="number">085169830215</span>
+            <button class="copy-btn" onclick="copyToClipboard('gopay-number')">Salin</button>
+        </div>
+        <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=085169830215" alt="QR GoPay">
+    </div>
+
+    <script>
+        function copyToClipboard(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Nomor berhasil disalin: " + text);
+            });
+        }
+    </script>
+
+</body>
+</html>
